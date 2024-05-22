@@ -6,9 +6,16 @@ using std::endl;
 #define tab  "\t"
 
 void FillRand(int arr[], const int n);
+void FillRand(double arr[], const int n);
+
 void Print(int arr[], const int n);
+void Print(double arr[], const int n);
+
 void Sort(int arr[], const int n);
+
 int Sum(int arr[], const int n);
+double Sum(double arr[], const int n);
+
 double Avg(int arr[], const int n);
 int minValueIn(int arr[], const int n);
 int maxValueIn(int arr[], const int n);
@@ -29,12 +36,20 @@ void main()
 	cout << "Минимальное значение: " << minValueIn(arr, n) << endl;
 	cout << "Максимальное значение: " << maxValueIn(arr, n) << endl;
 	int number_of_shifts;
-	cout << "Введите колво сдвигов: "; cin >> number_of_shifts;
-	shiftLeft(arr, n, number_of_shifts);
-	Print(arr, n);
-	cout << "Введите колво сдвигов: "; cin >> number_of_shifts;
-	shiftRight(arr, n, number_of_shifts);
-	Print(arr, n);
+	//cout << "Введите колво сдвигов: "; cin >> number_of_shifts;
+	//shiftLeft(arr, n, number_of_shifts);
+	//Print(arr, n);
+	//cout << "Введите колво сдвигов: "; cin >> number_of_shifts;
+	//shiftRight(arr, n, number_of_shifts);
+	//Print(arr, n);
+	const int SIZE = 8;
+	double brr[SIZE];
+	FillRand(brr, SIZE);
+	Print(brr, SIZE);
+	cout << "Сумма элементов массива: " << Sum(brr, SIZE) << endl;
+	//cout << "Среднее арифметическое: " << Avg(brr, SIZE) << endl;
+	//cout << "Минимальное значение: " << minValueIn(brr, SIZE) << endl;
+	//cout << "Максимальное значение: " << maxValueIn(brr, SIZE) << endl;
 }
 
 void FillRand(int arr[], const int n)
@@ -44,8 +59,22 @@ void FillRand(int arr[], const int n)
 		arr[i] = rand() % 100;
 	}
 }
+void FillRand(double arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % 100;
+	}
+}
 
 void Print(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << tab;
+	}cout << endl;
+}
+void Print(double arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -70,6 +99,15 @@ void Sort(int arr[], const int n)
 }
 
 int Sum(int arr[], const int n)
+{
+	int sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+double Sum(double arr[], const int n)
 {
 	int sum = 0;
 	for (int i = 0; i < n; i++)
